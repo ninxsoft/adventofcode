@@ -71,18 +71,18 @@ func gamesResult(from line: String) -> GamesResult? {
     return GamesResult(id: id, games: games)
 }
 
-let sumForPart1: Int = string.components(separatedBy: .newlines)
+let part1: Int = string.components(separatedBy: .newlines)
     .filter { !$0.isEmpty }
     .compactMap { gamesResult(from: $0) }
     .filter(\.isPossible)
     .map(\.id)
     .reduce(0, +)
-print("Part 1:", sumForPart1)
+print("Part 1:", part1)
 
 /// Part Two
-let sumForPart2: Int = string.components(separatedBy: .newlines)
+let part2: Int = string.components(separatedBy: .newlines)
     .filter { !$0.isEmpty }
     .compactMap { gamesResult(from: $0) }
     .map(\.power)
     .reduce(0, +)
-print("Part 2:", sumForPart2)
+print("Part 2:", part2)

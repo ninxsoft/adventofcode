@@ -15,11 +15,11 @@ func number(from line: String) -> Int? {
     return Int("\(first)\(last)")
 }
 
-let sumForPart1: Int = string.components(separatedBy: .newlines)
+let part1: Int = string.components(separatedBy: .newlines)
     .filter { !$0.isEmpty }
     .compactMap { number(from: $0) }
     .reduce(0, +)
-print("Part 1:", sumForPart1)
+print("Part 1:", part1)
 
 /// Part Two
 let digits: [String] = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
@@ -38,8 +38,8 @@ func stringReplacingLettersWithNumbers(_ line: String) -> String {
     return string
 }
 
-let sumForPart2: Int = string.components(separatedBy: .newlines)
+let part2: Int = string.components(separatedBy: .newlines)
     .filter { !$0.isEmpty }
     .compactMap { number(from: stringReplacingLettersWithNumbers($0)) }
     .reduce(0, +)
-print("Part 2:", sumForPart2)
+print("Part 2:", part2)

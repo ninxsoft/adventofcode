@@ -37,10 +37,10 @@ for line in string.components(separatedBy: .newlines).filter({ !$0.isEmpty }) {
     cards.append(card)
 }
 
-let sumForPart1: Int = cards
+let part1: Int = cards
     .map(\.points)
     .reduce(0, +)
-print("Part 1:", sumForPart1)
+print("Part 1:", part1)
 
 // Part Two
 for (outer, _) in cards.enumerated() {
@@ -49,7 +49,7 @@ for (outer, _) in cards.enumerated() {
     }
 }
 
-let sumForPart2: Int = cards
+let part2: Int = cards
     .map(\.copies)
     .reduce(0, +)
-print("Part 2:", sumForPart2)
+print("Part 2:", part2)

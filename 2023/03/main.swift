@@ -10,7 +10,7 @@ extension String {
 }
 
 let lines: [String] = string.components(separatedBy: .newlines).filter { !$0.isEmpty }
-var sumForPart1: Int = 0
+var part1: Int = 0
 
 for (index, line) in lines.enumerated() {
     for match in line.matches(of: #/\d+/#) {
@@ -22,7 +22,7 @@ for (index, line) in lines.enumerated() {
             // same line
             (match.startIndex.utf16Offset(in: line) > 0 && line[line.index(before: match.startIndex)] != ".") ||
             (match.endIndex.utf16Offset(in: line) < line.count - 1 && line[line.index(line.startIndex, offsetBy: match.endIndex.utf16Offset(in: line))] != ".") {
-            sumForPart1 += number
+            part1 += number
             continue
         }
 
@@ -32,7 +32,7 @@ for (index, line) in lines.enumerated() {
             let substring: String = previous.substring(start: match.startIndex.utf16Offset(in: line) - 1, end: match.endIndex.utf16Offset(in: line) + 1)
 
             if Set(substring).count > 1 {
-                sumForPart1 += number
+                part1 += number
                 continue
             }
         }
@@ -43,14 +43,14 @@ for (index, line) in lines.enumerated() {
             let substring: String = next.substring(start: match.startIndex.utf16Offset(in: line) - 1, end: match.endIndex.utf16Offset(in: line) + 1)
 
             if Set(substring).count > 1 {
-                sumForPart1 += number
+                part1 += number
                 continue
             }
         }
     }
 }
 
-print("Part 1:", sumForPart1)
+print("Part 1:", part1)
 
 /// Part Two
 extension String {
@@ -107,7 +107,7 @@ extension String {
     }
 }
 
-var sumForPart2: Int = 0
+var part2: Int = 0
 
 for (index, line) in lines.enumerated() {
     for match in line.matches(of: #/\*/#) {
@@ -162,9 +162,9 @@ for (index, line) in lines.enumerated() {
         }
 
         if parts.count == 2 {
-            sumForPart2 += parts[0] * parts[1]
+            part2 += parts[0] * parts[1]
         }
     }
 }
 
-print("Part 2:", sumForPart2)
+print("Part 2:", part2)
