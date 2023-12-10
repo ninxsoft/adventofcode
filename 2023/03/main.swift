@@ -99,7 +99,7 @@ extension String {
             }
 
             guard match else {
-                return Int(string)
+                break
             }
         }
 
